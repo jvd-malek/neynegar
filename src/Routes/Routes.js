@@ -1,7 +1,10 @@
-import Articles from "../Pages/Articles";
+import Article from "../Pages/Article";
+import ArticlePage from "../Pages/ArticlePage";
+import Basket from "../Pages/Basket";
 import GroupPage from "../Pages/GroupPage";
 import Home from "../Pages/Home";
 import Login from "../Pages/Login";
+import Product from "../Pages/ProductPage";
 
 
 const routes = [
@@ -11,7 +14,10 @@ const routes = [
     {path: '/traditional-product' , element: <GroupPage header='محصولات هنر‌های سنتی' txt2='فروش ابزار و لوازم هنر‌های سنتی' />},
     {path: '/login' , element: <Login isLogin={true}/>},
     {path: '/signup' , element: <Login isLogin={false}/>},
-    {path: '/articles' , element: <Articles/>},
+    {path: '/articles' , element: <ArticlePage/>},
+    {path: '/article' , element: <Article/>},
+    {path: '/basket' , element: <Basket/>},
+    {path: '/product' , element: <Product/>},
 ]
 
 export default routes

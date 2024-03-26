@@ -11,8 +11,8 @@ function Box({color}) {
 
     return (
         <>
-            <div className={`${color} mt-6 rounded-2xl mx-auto w-[82vw]`}>
-                <div className="mx-10">
+            <div className={`${color} mt-6 rounded-2xl mx-auto w-[82vw] dark:bg-slate-600 transition-all`}>
+                <div className="rounded-3xl">
                     <Swiper
                         slidesPerView={1}
                         spaceBetween={50}
@@ -37,8 +37,8 @@ function Box({color}) {
                                 spaceBetween: 50,
                             },
                         }}
-                        modules={[Pagination, Autoplay, Navigation]}
-                        className="mySwiper"
+                        modules={[Pagination, Autoplay]}
+                        style={{padding:'0 30px 20px 30px'}}
                     >
                         {list.map(i => (
                             <SwiperSlide key={i}>

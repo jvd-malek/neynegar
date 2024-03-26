@@ -16,7 +16,7 @@ function App() {
   }, [])
 
   return (
-    <>
+    <div className='font-[vazir]'>
       {loading ? <Load /> :
         <Provider>
           <Header />
@@ -24,7 +24,7 @@ function App() {
           <Footer />
         </Provider>
       }
-    </>
+    </div>
   );
 }
 

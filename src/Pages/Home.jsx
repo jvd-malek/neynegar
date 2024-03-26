@@ -35,7 +35,7 @@ function Home() {
             />
 
             <div className="mt-10">
-                <Box color={"gr1"} />
+                <Box color={"gr11"} />
             </div>
 
             <BoxHeader
@@ -45,7 +45,7 @@ function Home() {
             />
 
             <div className="mt-10">
-                <Box color={"gr4"} />
+                <Box color={"gr44"} />
             </div>
 
             <BoxHeader
@@ -55,13 +55,13 @@ function Home() {
             />
 
             <div className="mt-10">
-                <Box color={"gr2"} />
+                <Box color={"gr22"} />
             </div>
 
             <BoxHeader
                 title={'آخرین مقالات'}
                 color={"gr1"}
-                link="/article"
+                link="/articles"
             />
 
             <div className="mt-16 mx-auto w-[82vw] flex flex-wrap gap-10 justify-center">

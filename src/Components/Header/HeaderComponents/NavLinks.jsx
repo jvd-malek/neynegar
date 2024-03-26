@@ -7,6 +7,7 @@ import IconButton from '@mui/material/IconButton';
 import LocalMallRoundedIcon from '@mui/icons-material/LocalMallRounded';
 import PersonRoundedIcon from '@mui/icons-material/PersonRounded';
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 function NavLinks({ isOpen, setOpen, setDark }) {
 
@@ -14,6 +15,17 @@ function NavLinks({ isOpen, setOpen, setDark }) {
         window.scrollTo({ top: 0, behavior: "smooth" })
         setOpen(false)
     }
+
+    const [search, setSearch] = useState('')
+
+    // useEffect(() => {
+    //     setSelection('')
+    // }, [])
+
+    const searchHandler = e => {
+        setSearch(e.target.value)
+    }
+
     const links = [
         {
             id: 1, txt: 'لوازم خوشنویسی', func: scrollTop, path: '/caligraphic-product',
@@ -104,7 +116,11 @@ function NavLinks({ isOpen, setOpen, setDark }) {
                                 className="w-full p-[0.08rem] rounded-xl "
                             >
                                 <div className="w-full rounded-xl text-white">
-                                    <input type="text" className="w-full bg-gradient-to-tr from-sky-500 to-sky-600 rounded-xl outline-none px-4 py-[0.55rem] placeholder:text-slate-300" placeholder="جستوجو" />
+                                    <input type="text"
+                                        value={search}
+                                        onChange={e => searchHandler(e)}
+                                        className="w-full bg-gradient-to-tr from-sky-500 to-sky-600 rounded-xl outline-none px-4 py-[0.55rem] placeholder:text-slate-300"
+                                        placeholder="جستوجو" />
                                 </div>
 
                             </motion.li>
@@ -144,11 +160,14 @@ function NavLinks({ isOpen, setOpen, setDark }) {
                                 }}
                                 className="p-[0.08rem] rounded-xl bg-gradient-to-tr from-sky-500 to-sky-600"
                             >
-                                <div className="w-full rounded-xl text-white flex items-center gap-8">
+                                <Link
+                                    to={'/basket'}
+                                    onClick={() => scrollTop()}
+                                    className="w-full rounded-xl text-white flex items-center gap-8">
                                     <IconButton sx={{ color: 'white' }}>
                                         <LocalMallRoundedIcon />
                                     </IconButton>
-                                </div>
+                                </Link>
                             </motion.li>
                             <motion.li
                                 initial={{ scale: 0, opacity: 0 }}
@@ -161,11 +180,14 @@ function NavLinks({ isOpen, setOpen, setDark }) {
                                 }}
                                 className="p-[0.08rem] rounded-xl bg-gradient-to-tr from-sky-500 to-sky-600"
                             >
-                                <div className="w-full rounded-xl text-white flex items-center">
+                                <Link
+                                    to={'login'}
+                                    onClick={() => setOpen(false)}
+                                    className="w-full rounded-xl text-white flex items-center">
                                     <IconButton sx={{ color: 'white' }}>
                                         <PersonRoundedIcon />
                                     </IconButton>
-                                </div>
+                                </Link>
                             </motion.li>
 
                         </div>

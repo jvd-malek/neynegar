@@ -35,7 +35,7 @@ function Footer() {
             <div className="bg-sky-200 w-[85vw] mx-auto rounded-t-3xl">
                 <p className="p-3  text-center font-[vazir]">
                     {'کلیه حقوق برای '}
-                    <Link to={'/'}>
+                    <Link to={'/'} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
                         فروشگاه مجازی نی‌نگار
                     </Link>
                     {' محفوظ است'}

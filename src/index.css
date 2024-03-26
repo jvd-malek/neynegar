@@ -65,7 +65,7 @@
   }
 
   .scrolledNavbarFixed {
-    @apply w-[90%] py-1 lg:py-4 px-4 text-xl text-sky-800 bg-white fixed top-3 -translate-x-1/2 left-1/2 rounded-xl shadow-2xl container z-10 transition-all duration-300
+    @apply w-[90%] py-1 lg:py-4 px-4 text-xl text-sky-800 bg-white fixed top-3 -translate-x-1/2 left-1/2 rounded-xl shadow-2xl container z-50 transition-all duration-300
   }
 
   .scrolledNavbarFixed .color {
@@ -131,11 +131,27 @@
     filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#649DFA", endColorstr="#60efff", GradientType=1);
   }
 
+  .gr11 {
+    background: hsla(217, 94%, 69%, 0.4);
+    background: linear-gradient(135deg, hsla(217, 94%, 69%, 0.4) 0%, hsla(186, 100%, 69%, 0.4) 100%);
+    background: -moz-linear-gradient(135deg, hsla(217, 94%, 69%, 0.4) 0%, hsla(186, 100%, 69%, 0.4) 100%);
+    background: -webkit-linear-gradient(135deg, hsla(217, 94%, 69%, 0.4) 0%, hsla(186, 100%, 69%, 0.4) 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#649DFA", endColorstr="#60efff", GradientType=1);
+  }
+
   .gr2 {
     background: hsla(152, 97%, 76%, 1);
     background: linear-gradient(135deg, hsla(152, 97%, 76%, 1) 0%, hsla(186, 100%, 69%, 1) 100%);
     background: -moz-linear-gradient(135deg, hsla(152, 97%, 76%, 1) 0%, hsla(186, 100%, 69%, 1) 100%);
     background: -webkit-linear-gradient(135deg, hsla(152, 97%, 76%, 1) 0%, hsla(186, 100%, 69%, 1) 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#89FDC7", endColorstr="#60efff", GradientType=1);
+  }
+
+  .gr22 {
+    background: hsla(152, 97%, 76%, 0.4);
+    background: linear-gradient(135deg, hsla(152, 97%, 76%, 0.4) 0%, hsla(186, 100%, 69%, 0.4) 100%);
+    background: -moz-linear-gradient(135deg, hsla(152, 97%, 76%, 0.4) 0%, hsla(186, 100%, 69%, 0.4) 100%);
+    background: -webkit-linear-gradient(135deg, hsla(152, 97%, 76%, 0.4) 0%, hsla(186, 100%, 69%, 0.4) 100%);
     filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#89FDC7", endColorstr="#60efff", GradientType=1);
   }
 
@@ -147,11 +163,27 @@
     filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#ff930f", endColorstr="#fff95b", GradientType=1);
   }
 
+  .gr33 {
+    background: hsla(58, 100%, 68%, 0.4);
+    background: linear-gradient(135deg, hsla(58, 100%, 68%, 0.4) 0%, hsla(186, 100%, 69%, 0.4) 100%);
+    background: -moz-linear-gradient(135deg, hsla(58, 100%, 68%, 0.4) 0%, hsla(186, 100%, 69%, 0.4) 100%);
+    background: -webkit-linear-gradient(135deg, hsla(58, 100%, 68%, 0.4) 0%, hsla(186, 100%, 69%, 0.4) 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#ff930f", endColorstr="#fff95b", GradientType=1);
+  }
+
   .gr4 {
     background: hsla(274, 100%, 70%, 1);
     background: linear-gradient(135deg, hsla(274, 100%, 70%, 1) 0%, hsla(186, 100%, 69%, 1) 100%);
     background: -moz-linear-gradient(135deg, hsla(274, 100%, 70%, 1) 0%, hsla(186, 100%, 69%, 1) 100%);
     background: -webkit-linear-gradient(135deg, hsla(274, 100%, 70%, 1) 0%, hsla(186, 100%, 69%, 1) 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#BD66FF", endColorstr="#60efff", GradientType=1);
+  }
+
+  .gr44 {
+    background: hsla(274, 100%, 70%, 0.4);
+    background: linear-gradient(135deg, hsla(274, 100%, 70%, 0.4) 0%, hsla(186, 100%, 69%, 0.4) 100%);
+    background: -moz-linear-gradient(135deg, hsla(274, 100%, 70%, 0.4) 0%, hsla(186, 100%, 69%, 0.4) 100%);
+    background: -webkit-linear-gradient(135deg, hsla(274, 100%, 70%, 0.4) 0%, hsla(186, 100%, 69%, 0.4) 100%);
     filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#BD66FF", endColorstr="#60efff", GradientType=1);
   }
 }
