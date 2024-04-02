@@ -6,7 +6,7 @@ import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
 import { useState } from 'react';
 import FilterListRoundedIcon from '@mui/icons-material/FilterListRounded';
 
-function BoxHeader({ title, txt1, txt2, color, all = true, link = "/", searchBar = false }) {
+function BoxHeader({ title, txt1, txt2, color, all = true, link = "/", searchBar = false, count = [10, 20, 30] }) {
 
     const [selection, setSelection] = useState('')
     const [search, setSearch] = useState('')
@@ -48,7 +48,7 @@ function BoxHeader({ title, txt1, txt2, color, all = true, link = "/", searchBar
                 <div className="flex sm:flex-row flex-col gap-4 justify-between sm:items-center w-[82vw] mx-auto font-[vazir] mt-10">
 
                     <div className="sm:flex-row flex-col flex gap-4 sm:items-center">
-                        <div className={`bg-sky-200  transition-all duration-500 flex items-center overflow-hidden ${sort ? "w-36 rounded-r-3xl rounded-l-md" : 'w-10 rounded-full'}`}>
+                        <div className={`bg-sky-200  transition-all duration-500 flex items-center overflow-hidden shadow-md ${sort ? "w-36 rounded-r-3xl rounded-l-lg" : 'w-10 rounded-full'}`}>
                             <IconButton sx={{ color: "#486076" }} onClick={() => setSort(!sort)}>
                                 <FilterListRoundedIcon />
                             </IconButton>
@@ -66,41 +66,41 @@ function BoxHeader({ title, txt1, txt2, color, all = true, link = "/", searchBar
                             </div>
                         </div>
 
-                        <div className="p-2 bg-sky-200 rounded-md text-slate-700 flex items-center w-fit">
+                        <div className="p-2 bg-sky-200 rounded-lg text-slate-700 flex items-center w-fit shadow-md ">
                             تعداد در صفحه:
                             <select name="مرتب‌سازی"
                                 value={selection}
                                 onChange={e => setSelection(e.target.value)}
                                 className="bg-sky-200 outline-none">
-                                <option value="10">10</option>
-                                <option value="20">20</option>
-                                <option value="30">30</option>
+                                {count.map(i => (
+                                    <option value={i} key={i}>{i}</option>
+                                ))}
                             </select>
                         </div>
 
                     </div>
 
-                        <div className="flex justify-center items-center gap-2 bg-sky-200 w-fit rounded-md">
-                            <div className="text-slate-700">
-                                <input type="text"
-                                    className="py-1 px-2 outline-none rounded-md bg-sky-200 placeholder:text-slate-600 md:w-full sm:w-36"
-                                    placeholder="جستوجو محصولات"
-                                    value={search}
-                                    onChange={e => searchHandler(e)}
-                                />
-                                {/* <input type="text"
+                    <div className="flex justify-center items-center gap-2 bg-sky-200 w-fit rounded-lg shadow-md ">
+                        <div className="text-slate-700">
+                            <input type="text"
+                                className="py-1 px-4 outline-none rounded-full bg-sky-200 placeholder:text-slate-600 md:w-full sm:w-36"
+                                placeholder="جستوجو محصولات"
+                                value={search}
+                                onChange={e => searchHandler(e)}
+                            />
+                            {/* <input type="text"
                                     className="py-1 px-2 outline-none rounded-md bg-sky-200 placeholder:text-slate-600 hidden sm:block "
                                     placeholder="جستوجوی محصولات"
                                     value={search}
                                     onChange={e => searchHandler(e)}
                                 /> */}
-                            </div>
-                            <div className="">
-                                <IconButton sx={{ color: '#486076' }}>
-                                    <SearchRoundedIcon />
-                                </IconButton>
-                            </div>
                         </div>
+                        <div className="">
+                            <IconButton sx={{ color: '#486076' }}>
+                                <SearchRoundedIcon />
+                            </IconButton>
+                        </div>
+                    </div>
                 </div>
             }
         </>

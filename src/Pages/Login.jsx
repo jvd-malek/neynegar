@@ -1,5 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
-import Button from '@mui/material/Button';
+import { useState } from 'react';
 import TextField from '@mui/material/TextField';
 import { CacheProvider } from '@emotion/react';
 import createCache from '@emotion/cache';
@@ -46,7 +45,7 @@ function Login({isLogin}) {
         <div className="flex justify-center items-center w-full h-screen font-[vazir] dark:bg-slate-800">
             <img src="./Imgs/login.jpg" alt="" className=' absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2' />
             <div className="bg-dark-glass w-full h-full flex justify-center items-center">
-                <div className="h-[80vh] sm:max-w-[25rem] w-[85vw] mx-6 rounded-3xl overflow-hidden relative">
+                <div className="sm:h-[80vh] h-[60vh] sm:max-w-[25rem] w-[85vw] mx-6 rounded-3xl overflow-hidden relative">
                     <Link to={'/'} className='absolute top-4 right-4 z-20'>
                         <IconButton color='primary'>
                             <ClearRoundedIcon />
@@ -62,8 +61,8 @@ function Login({isLogin}) {
                                 <CacheProvider value={cacheRtl}>
                                     <TextField label="شماره تلفن" required variant="standard" />
                                     <TextField label="رمز عبور" required variant="standard" />
-                                    <Button variant='contained' sx={{ margin: '2rem 0 0' }}>دریافت رمز عبور</Button>
-                                </CacheProvider>
+                                    <button className={`py-2.5 mt-6 w-full rounded-full bg-sky-400 border-sky-300 hover:bg-sky-500 active:border-white text-white border-b-4 border-solid active:translate-y-1`}>دریافت رمز عبور</button>
+                                    </CacheProvider>
                             </ThemeProvider>
                             <h3 className="text-base mb-4">کاربر جدید هستید؟
                                 <span className=" text-sky-800 cursor-pointer" onClick={() => setSignUP(true)}> ثبت‌نام</span>
@@ -81,7 +80,7 @@ function Login({isLogin}) {
                                     <TextField label="نام و نام‌خانوادگی" required variant="standard" />
                                     <TextField label="شماره تلفن" required variant="standard" />
                                     <TextField label="رمز عبور" required variant="standard" />
-                                    <Button variant='contained' sx={{ margin: '2rem 0 0' }}>دریافت رمز عبور</Button>
+                                    <button className={`py-2.5 mt-6 w-full rounded-full bg-sky-400 border-sky-300 hover:bg-sky-500 active:border-white text-white border-b-4 border-solid active:translate-y-1`}>دریافت رمز عبور</button>
                                 </CacheProvider>
                             </ThemeProvider>
                             <h3 className="text-base mb-4">قبلا ثبت‌نام کرده‌اید؟

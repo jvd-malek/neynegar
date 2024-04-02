@@ -64,7 +64,7 @@ function Header() {
     }, [isDark])
 
     return (
-        <div className={(router.props.match.pathname !== '/login' && router.props.match.pathname !== '/signup') ? '': 'hidden'}>
+        <div className={(router.props.match.pathname !== '/login' && router.props.match.pathname !== '/register') ? '': 'hidden'}>
 
             {/* this navbar is for top=0 */}
             {/* second navbar is hidden */}

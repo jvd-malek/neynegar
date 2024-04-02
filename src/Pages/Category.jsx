@@ -2,7 +2,7 @@ import BoxHeader from "../Components/Boxes/BoxHeader";
 import ProductBox from "../Components/Boxes/ProductBox";
 import PaginationBox from "../Components/Boxes/PaginationBox";
 
-function GroupPage({ header, txt2 }) {
+function Category({ header, txt2 }) {
     const list = [1, 2, 3, 4, 5, 6, 7, 8]
 
     return (
@@ -29,4 +29,4 @@ function GroupPage({ header, txt2 }) {
     );
 }
 
-export default GroupPage;
+export default Category;

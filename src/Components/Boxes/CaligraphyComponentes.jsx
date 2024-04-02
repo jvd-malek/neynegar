@@ -86,8 +86,8 @@ function CaligraphyComponentes() {
                 </div>
                 <div className="flex flex-col items-center lg:items-start">
                     <h2 className='text-2xl text-slate-800'>قلم‌تراش</h2>
-                    <Link to={"/"} className="flex items-center w-fit gap-x-1 pt-2 text-slate-700">
-                        <span className="font-[vazir] inline-block ">مشاهده همه</span>
+                    <Link to={"/"} className="flex items-center w-fit gap-x-1 pt-2 text-slate-700 z-20">
+                        <span className="font-[vazir] inline-block">مشاهده همه</span>
                         <div className="md:inline-block hidden">
                             <KeyboardBackspaceRoundedIcon />
                         </div>

@@ -114,7 +114,7 @@ function Navbar({ children, isDark, isOpenFirst, isOpenSecond, isHeaderScrolled,
                     </div>
                     <div className="relative h-full text-lg xl:text-lg text-white dark:text-sky-900 lg:w-[155px] xl:w-[180px]">
                         <Link to={'/login'} className="h-full w-24 xl:w-28 hidden lg:flex items-center justify-start py-1 bg-sky-500/60 hover:bg-sky-400 dark:bg-sky-100 dark:hover:bg-[#3F6CD8] dark:hover:text-white rounded-full pr-5 transition-colors">ورود</Link>
-                        <Link to={'/signup'} className="absolute top-0 left-0 w-24 xl:w-28 hidden lg:flex items-center justify-center py-1 bg-sky-500 hover:bg-sky-600 dark:bg-sky-300 dark:hover:bg-[#3F6CD8] dark:hover:text-white rounded-full z-10 transition-colors">ثبت‌نام</Link>
+                        <Link to={'/register'} className="absolute top-0 left-0 w-24 xl:w-28 hidden lg:flex items-center justify-center py-1 bg-sky-500 hover:bg-sky-600 dark:bg-sky-300 dark:hover:bg-[#3F6CD8] dark:hover:text-white rounded-full z-10 transition-colors">ثبت‌نام</Link>
                         {/* <!-- When Screen Smaller Than 475px, Its Display --> */}
                         <Link to={'/login'} className="lg:hidden">
                             <IconButton color="primary" sx={{ color: dark }}>

@@ -8,7 +8,7 @@ function Footer() {
 
     return (
         <div
-            className={(router.props.match.pathname !== '/login' && router.props.match.pathname !== '/signup') ?
+            className={(router.props.match.pathname !== '/login' && router.props.match.pathname !== '/register') ?
                 "" : 'hidden'}>
             <div
                 className="flex md:flex-row flex-col gap-8 justify-around font-[vazir] w-[85vw] mx-auto rounded-3xl p-8 bg-sky-200 mt-40 mb-20 outline-sky-200 outline-[6px] outline border-x-2 border-t-2 border-solid border-white dark:border-slate-800 transition-all before:bg-sky-500 before:absolute relative before:left-1/2 before:-translate-x-1/2 before:w-[50%] before:h-40 before:-z-10 before:-bottom-5 before:rounded-3xl"
