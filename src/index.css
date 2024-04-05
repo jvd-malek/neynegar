@@ -61,7 +61,7 @@
   }
 
   .scrolledNavbarFixed {
-    @apply w-[90%] py-1 lg:py-4 px-4 text-xl text-sky-800 bg-white fixed top-3 -translate-x-1/2 left-1/2 rounded-xl shadow-2xl container z-50 transition-all duration-300
+    @apply w-[90%] py-1 lg:py-4 px-4 text-xl text-sky-800 bg-white dark:bg-sky-100 fixed top-3 -translate-x-1/2 left-1/2 rounded-xl dark:shadow-css shadow-cs container z-50 transition-all duration-300
   }
 
   .scrolledNavbarFixed .color {

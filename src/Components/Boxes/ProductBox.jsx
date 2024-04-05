@@ -4,7 +4,7 @@ import CancelRoundedIcon from '@mui/icons-material/CancelRounded';
 import IconButton from '@mui/material/IconButton';
 import AddCircleRoundedIcon from '@mui/icons-material/AddCircleRounded';
 
-function ProductBox({ box = true, basket = false , suggest = false }) {
+function ProductBox({ box = true, basket = false, suggest = false }) {
     const [count, setCount] = useState(1)
 
     const deleteHandler = () => {
@@ -16,7 +16,7 @@ function ProductBox({ box = true, basket = false , suggest = false }) {
             <div
                 className={`flex ${suggest && 'shadow-none'} ${basket ? "bg-white w-fit sm:pl-4 flex-col sm:flex-row items-center sm:items-star gap-6 shadow-none" : "flex-col overflow-hidden dark:shadow-none"}  ${box ? 'bg-glass border border-solid border-sky-200 dark:border-gray-600 dark:bg-gray-800' : "shadow-css gr1"} rounded-2xl ${box && "lg:my-8 my-10"}`}>
 
-                <Link to={'/product'}>
+                <Link to={'/product'} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
                     <img className={`${basket ? "md:w-40 sm:w-60 rounded-xl" : "border-b-2 rounded-2xl"}  border-solid border-slate-800 `} src="./Imgs/p1.jpg" alt="دوره پروژه محور متخصص جنگو" />
                 </Link>
 
