@@ -9,8 +9,7 @@ function Header() {
 
     const router = useRoutes(routes)
     const [offset, setOffset] = useState(0)
-    const [isOpenFirst, setOpenFirst] = useState(false);
-    const [isOpenSecond, setOpenSecond] = useState(false);
+    const [isOpen, setOpen] = useState(false);
     const [isHeaderScrolled, setIsHeaderScrolled] = useState(false)
     const [isSearchOpen, setSearchOpen] = useState(false)
 
@@ -18,15 +17,9 @@ function Header() {
     // and also manage the state of navbarlinks
     useEffect(() => {
         if (offset > 0) {
-            if (isOpenFirst) {
-                setOpenSecond(true)
-            }
             setIsHeaderScrolled(true)
-            setOpenFirst(false)
         } else {
-            if (!isOpenSecond) {
-                setIsHeaderScrolled(false)
-            }
+            setIsHeaderScrolled(false)
         }
     }, [offset])
 
@@ -39,8 +32,7 @@ function Header() {
     // when navbarLinks is open and user change it's devices orientation
     // orientationHandler will close the navbarLinks
     const orientationHandler = () => {
-        setOpenFirst(false)
-        setOpenSecond(false)
+        setOpen(false)
         setSearchOpen(false)
     }
 
@@ -64,33 +56,19 @@ function Header() {
     }, [isDark])
 
     return (
-        <div className={(router.props.match.pathname !== '/login' && router.props.match.pathname !== '/register') ? '': 'hidden'}>
+        <div className={(router.props.match.pathname !== '/login' && router.props.match.pathname !== '/register') ? '' : 'hidden'}>
 
-            {/* this navbar is for top=0 */}
-            {/* second navbar is hidden */}
             <Navbar
-                isOpenFirst={isOpenFirst}
+                isOpen={isOpen}
                 isHeaderScrolled={isHeaderScrolled}
-                setOpenFirst={setOpenFirst}
-                isFixed={false}
+                setOpen={setOpen}
                 isDark={isDark}
-            >
-                <NavLinks isOpen={isOpenFirst} setOpen={setOpenFirst} setDark={setDark}/>
-            </Navbar>
+            />
 
-            {/* this navbar is for when screen is scrolled */}
-            {/* first navbar opacity=0 */}
-            <Navbar
-                isOpenSecond={isOpenSecond}
-                isHeaderScrolled={isHeaderScrolled}
-                setOpenSecond={setOpenSecond}
-                isFixed={true}
-            >
-                <NavLinks isOpen={isOpenSecond} setOpen={setOpenSecond} setDark={setDark}/>
-            </Navbar>
+            <NavLinks isOpen={isOpen} setOpen={setOpen} setDark={setDark} />
 
-            <SideMenu setDark={setDark} isSearchOpen={isSearchOpen} setSearchOpen={setSearchOpen}/>
-            
+            <SideMenu setDark={setDark} isSearchOpen={isSearchOpen} setSearchOpen={setSearchOpen} />
+
         </div>
     );
 }

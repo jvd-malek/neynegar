@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 import Load from './Pages/Load';
 import Footer from './Components/Footer/Footer';
 
+
 function App() {
   const router = useRoutes(routes)
   const [loading, setLoading] = useState(true)
@@ -20,7 +21,7 @@ function App() {
       {loading ? <Load /> :
         <Provider>
           <Header />
-          {router}
+            {router}
           <Footer />
         </Provider>
       }

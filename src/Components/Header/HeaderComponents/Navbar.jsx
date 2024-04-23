@@ -4,7 +4,7 @@ import IconButton from '@mui/material/IconButton';
 import AccountCircleTwoToneIcon from '@mui/icons-material/AccountCircleTwoTone';
 import { useEffect, useState } from "react";
 
-function Navbar({ children, isDark, isOpenFirst, isOpenSecond, isHeaderScrolled, setOpenFirst, setOpenSecond, isFixed }) {
+function Navbar({ children, isDark, isOpen, setOpen, isHeaderScrolled }) {
 
     const scrollTop = () => {
         window.scrollTo({ top: 0, behavior: "smooth" })
@@ -68,23 +68,14 @@ function Navbar({ children, isDark, isOpenFirst, isOpenSecond, isHeaderScrolled,
 
     return (
         <>
-            <div className={isFixed ?
-                (isHeaderScrolled ?
-                    "scrolledNavbarFixed" :
-                    "navbarFixed") :
-                (isHeaderScrolled ?
-                    "scrolledNavbar" :
-                    "navbar")}>
+            <div className={isHeaderScrolled ?
+                    "scrolledNavbarFixed " :
+                    "navbarFixed"}>
                 <div className="flex justify-between items-center">
-                    <div className="lg:hidden ">
-                        {isFixed ?
-                            (<IconButton color="primary">
-                                <Hamburger toggled={isOpenSecond} size={30} toggle={setOpenSecond} />
-                            </IconButton>) :
-                            (<IconButton color="primary" sx={{ color: dark }}>
-                                <Hamburger toggled={isOpenFirst} size={30} toggle={setOpenFirst} />
-                            </IconButton>)
-                        }
+                    <div className="lg:hidden">
+                            <IconButton color="primary" sx={{ color: dark }}>
+                                <Hamburger toggled={isOpen} size={30} toggle={setOpen} />
+                            </IconButton>
                     </div>
                     <div className="headerStyle gap-20">
                         <div className=" text-4xl font-[Soofee] ml-10 relative color" onClick={() => scrollTop()}>
@@ -100,9 +91,9 @@ function Navbar({ children, isDark, isOpenFirst, isOpenSecond, isHeaderScrolled,
                                         {item.txt}
                                     </Link>
                                     <div className={`hidden absolute z-50`}>
-                                        <div className={`bg-white p-2  rounded-xl flex shadow-cs gap-4 ${isHeaderScrolled ? 'mt-8' : 'mt-3'}`}>
+                                        <div className={`bg-white dark:bg-slate-600 p-2  rounded-xl flex shadow-cs gap-4 ${isHeaderScrolled ? 'mt-8' : 'mt-3'}`}>
                                             {item.subLinks.map((l, i) => (
-                                                <Link to={l.path} key={i} className="whitespace-nowrap text-sky-800">
+                                                <Link to={l.path} key={i} className="whitespace-nowrap text-sky-800 dark:text-white">
                                                     {l.link}
                                                 </Link>
                                             ))}

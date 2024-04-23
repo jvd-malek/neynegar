@@ -48,15 +48,17 @@ function BoxHeader({ title, txt1, txt2, color, all = true, link = "/", searchBar
                 <div className="flex sm:flex-row flex-col gap-4 justify-between sm:items-center w-[82vw] mx-auto font-[vazir] mt-10">
 
                     <div className="sm:flex-row flex-col flex gap-4 sm:items-center">
-                        <div className={`bg-sky-200  transition-all duration-500 flex items-center overflow-hidden shadow-md ${sort ? "w-36 rounded-r-3xl rounded-l-lg" : 'w-10 rounded-full'}`}>
-                            <IconButton sx={{ color: "#486076" }} onClick={() => setSort(!sort)}>
-                                <FilterListRoundedIcon />
+                        <div className={`bg-sky-200 dark:bg-slate-600 transition-all flex items-center overflow-hidden shadow-md ${sort ? "w-36 rounded-r-3xl rounded-l-lg" : 'w-10 rounded-full'}`}>
+                            <IconButton onClick={() => setSort(!sort)}>
+                                <div className="dark:text-white h-6 -translate-y-1 text-slate-700" >
+                                    <FilterListRoundedIcon />
+                                </div>
                             </IconButton>
-                            <div className={`p-2 transition-all duration-500 outline-none bg-sky-200 rounded-md overflow-hidden text-slate-700 ${sort ? "w-full opacity-100" : "w-0 opacity-0"}`}>
+                            <div className={`p-2 transition-all outline-none dark:bg-slate-600 dark:text-white bg-sky-200 rounded-md overflow-hidden text-slate-700 ${sort ? "w-full opacity-100" : "w-0 opacity-0"}`}>
                                 <select name="مرتب‌سازی"
                                     value={selection}
                                     onChange={e => setSelection(e.target.value)}
-                                    className="bg-sky-200 outline-none">
+                                    className="bg-sky-200 dark:bg-slate-600 transition-all outline-none">
                                     <option value="default" >پیش فرض</option>
                                     <option value="cheap" >ارزانترین‌ها</option>
                                     <option value="expensive" >گرانترین‌ها</option>
@@ -66,12 +68,12 @@ function BoxHeader({ title, txt1, txt2, color, all = true, link = "/", searchBar
                             </div>
                         </div>
 
-                        <div className="p-2 bg-sky-200 rounded-lg text-slate-700 flex items-center w-fit shadow-md ">
+                        <div className="p-2 bg-sky-200 dark:bg-slate-600 transition-all dark:text-white rounded-lg text-slate-700 flex items-center w-fit shadow-md ">
                             تعداد در صفحه:
                             <select name="مرتب‌سازی"
                                 value={selection}
                                 onChange={e => setSelection(e.target.value)}
-                                className="bg-sky-200 outline-none">
+                                className="bg-sky-200 dark:bg-slate-600 transition-all outline-none">
                                 {count.map(i => (
                                     <option value={i} key={i}>{i}</option>
                                 ))}
@@ -80,10 +82,10 @@ function BoxHeader({ title, txt1, txt2, color, all = true, link = "/", searchBar
 
                     </div>
 
-                    <div className="flex justify-center items-center gap-2 bg-sky-200 w-fit rounded-lg shadow-md ">
+                    <div className="flex justify-center items-center gap-2 bg-sky-200 dark:bg-slate-600 transition-all w-fit rounded-lg shadow-md">
                         <div className="text-slate-700">
                             <input type="text"
-                                className="py-1 px-4 outline-none rounded-full bg-sky-200 placeholder:text-slate-600 md:w-full sm:w-36"
+                                className="py-1 px-4 outline-none rounded-full bg-sky-200 transition-all dark:bg-slate-600 dark:text-white dark:placeholder:text-slate-200 placeholder:text-slate-600 md:w-full sm:w-36"
                                 placeholder="جستوجو محصولات"
                                 value={search}
                                 onChange={e => searchHandler(e)}
@@ -95,11 +97,11 @@ function BoxHeader({ title, txt1, txt2, color, all = true, link = "/", searchBar
                                     onChange={e => searchHandler(e)}
                                 /> */}
                         </div>
-                        <div className="">
-                            <IconButton sx={{ color: '#486076' }}>
+                        <IconButton >
+                            <div className="dark:text-white h-6 -translate-y-1">
                                 <SearchRoundedIcon />
-                            </IconButton>
-                        </div>
+                            </div>
+                        </IconButton>
                     </div>
                 </div>
             }

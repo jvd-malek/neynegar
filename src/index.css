@@ -48,27 +48,19 @@
     @apply flex gap-8 items-center
   }
 
-  .scrolledNavbar {
-    @apply py-4 px-10 text-xl opacity-0
-  }
-
-  .navbar {
-    @apply py-4 px-10 text-xl dark:text-white text-sky-800
-  }
-
   .navbarFixed {
-    @apply bg-white fixed -top-40 -translate-x-1/2 left-1/2 w-0
+    @apply bg-white dark:bg-slate-800 transition-all w-full fixed top-0 -translate-x-1/2 left-1/2 py-4 px-4 text-xl dark:text-white text-sky-800
   }
 
   .scrolledNavbarFixed {
-    @apply w-[90%] py-1 lg:py-4 px-4 text-xl text-sky-800 bg-white dark:bg-sky-100 fixed top-3 -translate-x-1/2 left-1/2 rounded-xl dark:shadow-css shadow-cs container z-50 transition-all duration-300
+    @apply w-[90%] py-1 lg:py-4 px-4 text-xl text-sky-800 bg-white dark:bg-slate-600 dark:text-white fixed top-3 -translate-x-1/2 left-1/2 rounded-xl dark:shadow-css shadow-cs container z-50 transition-all duration-300
   }
 
   .scrolledNavbarFixed .color {
-    @apply text-sky-600 dark:text-sky-800 transition-all
+    @apply text-sky-600 dark:text-white transition-all
   }
 
-  .navbar .color {
+  .navbarFixed .color {
     @apply text-sky-600 dark:text-white transition-all
   }
 
@@ -127,6 +119,22 @@
     filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#649DFA", endColorstr="#60efff", GradientType=1);
   }
 
+  .gr1dark {
+    background: hsla(217, 33%, 17%, 1);
+    background: linear-gradient(90deg, hsla(217, 33%, 17%, 1) 0%, hsla(217, 33%, 17%, 1) 100%);
+    background: -moz-linear-gradient(90deg, hsla(217, 33%, 17%, 1) 0%, hsla(217, 33%, 17%, 1) 100%);
+    background: -webkit-linear-gradient(90deg, hsla(217, 33%, 17%, 1) 0%, hsla(217, 33%, 17%, 1) 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#1E293B", endColorstr="#1E293B", GradientType=1);
+  }
+
+  .gr2dark {
+    background: hsla(215, 19%, 35%, 1);
+    background: linear-gradient(90deg, hsla(215, 19%, 35%, 1) 0%, hsla(215, 19%, 35%, 1) 100%);
+    background: -moz-linear-gradient(90deg, hsla(215, 19%, 35%, 1) 0%, hsla(215, 19%, 35%, 1) 100%);
+    background: -webkit-linear-gradient(90deg, hsla(215, 19%, 35%, 1) 0%, hsla(215, 19%, 35%, 1) 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#475569", endColorstr="#475569", GradientType=1);
+  }
+
   .gr11 {
     background: hsla(217, 94%, 69%, 0.4);
     background: linear-gradient(135deg, hsla(217, 94%, 69%, 0.4) 0%, hsla(186, 100%, 69%, 0.4) 100%);
@@ -181,5 +189,9 @@
     background: -moz-linear-gradient(135deg, hsla(274, 100%, 70%, 0.4) 0%, hsla(186, 100%, 69%, 0.4) 100%);
     background: -webkit-linear-gradient(135deg, hsla(274, 100%, 70%, 0.4) 0%, hsla(186, 100%, 69%, 0.4) 100%);
     filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#BD66FF", endColorstr="#60efff", GradientType=1);
+  }
+
+  .activeLink{
+    @apply gr1 dark:gr1dark rounded-lg 
   }
 }

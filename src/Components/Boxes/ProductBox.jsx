@@ -4,7 +4,7 @@ import CancelRoundedIcon from '@mui/icons-material/CancelRounded';
 import IconButton from '@mui/material/IconButton';
 import AddCircleRoundedIcon from '@mui/icons-material/AddCircleRounded';
 
-function ProductBox({ box = true, basket = false, suggest = false }) {
+function ProductBox({ box = true, basket = false, suggest = false, category = false, account = false }) {
     const [count, setCount] = useState(1)
 
     const deleteHandler = () => {
@@ -14,7 +14,7 @@ function ProductBox({ box = true, basket = false, suggest = false }) {
     return (
         <>
             <div
-                className={`flex ${suggest && 'shadow-none'} ${basket ? "bg-white w-fit sm:pl-4 flex-col sm:flex-row items-center sm:items-star gap-6 shadow-none" : "flex-col overflow-hidden dark:shadow-none"}  ${box ? 'bg-glass border border-solid border-sky-200 dark:border-gray-600 dark:bg-gray-800' : "shadow-css gr1"} rounded-2xl ${box && "lg:my-8 my-10"}`}>
+                className={`flex ${suggest && 'shadow-none dark:gr1dark stroke-slate-800'} ${basket ? "bg-white w-fit sm:pl-4 flex-col sm:flex-row items-center sm:items-star gap-6 shadow-none dark:text-white dark:gr1dark" : "flex-col overflow-hidden dark:shadow-none"}  ${box ? 'bg-glass border border-solid border-sky-200 dark:border-gray-600 dark:bg-gray-800' : "shadow-css gr1 dark:text-white"} ${category && 'dark:gr2dark'} rounded-2xl ${box && "lg:my-8 my-10"}`}>
 
                 <Link to={'/product'} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
                     <img className={`${basket ? "md:w-40 sm:w-60 rounded-xl" : "border-b-2 rounded-2xl"}  border-solid border-slate-800 `} src="./Imgs/p1.jpg" alt="دوره پروژه محور متخصص جنگو" />
@@ -27,22 +27,32 @@ function ProductBox({ box = true, basket = false, suggest = false }) {
                                 <h3 className="">سرو سایه فکن</h3>
                                 <h3 className="flex md:gap-2  items-center">قیمت واحد: <span>5,398,000</span></h3>
                                 <h3 className="flex md:gap-2  items-center">قیمت کل: <span>5,398,000</span></h3>
+                                <div className={`items-center gap-3 ${account ? 'flex' : 'hidden'}`}>
+                                    <p className="">
+                                        تعداد:
+                                    </p>
+                                    <div className="px-2 py-[1px] text-center rounded-md bg-sky-100 border-2 text-sky-700 transition-all dark:border-slate-300 border-sky-200 shadow border-solid text-lg">
+                                        {count}
+                                    </div>
+                                </div>
                             </div>
-                            <div className="w-fit h-fit rounded-full bg-sky-100 border-2 text-sky-700 border-sky-200 shadow border-solid flex items-center gap-2 text-lg sm:mb-0 mb-2">
-                                <IconButton onClick={() => deleteHandler()} color="primary">
-                                    <AddCircleRoundedIcon />
-                                </IconButton>
-                                {count}
-                                <IconButton onClick={() => deleteHandler()} sx={{ color: 'red' }}>
-                                    <CancelRoundedIcon />
-                                </IconButton>
-                            </div>
+                            {!account &&
+                                <div className="w-fit h-fit rounded-full bg-sky-100 border-2 text-sky-700 transition-all dark:border-slate-300 border-sky-200 shadow border-solid flex items-center gap-2 text-lg sm:mb-0 mb-2">
+                                    <IconButton onClick={() => deleteHandler()} color="primary">
+                                        <AddCircleRoundedIcon />
+                                    </IconButton>
+                                    {count}
+                                    <IconButton onClick={() => deleteHandler()} sx={{ color: 'red' }}>
+                                        <CancelRoundedIcon />
+                                    </IconButton>
+                                </div>
+                            }
                         </div>
                     </>
                     :
                     <>
                         <div className={`px-4 pt-2.5 pb-4 flex-grow border-b ${box ? 'border-sky-300' : "border-b-gray-100"}  dark:border-b-gray-700`}>
-                            <p className={`text-sm h-10 line-clamp-2 ${box ? "text-slate-600 dark:text-slate-400" : "text-slate-800"}`}>سرو سایه فکن : درباره فردوسی و شاهنامه خوشنویسی: امیرخانی</p>
+                            <p className={`text-sm h-10 line-clamp-2 dark:text-white ${box ? "text-slate-600 dark:text-slate-400" : "text-slate-800"}`}>سرو سایه فکن : درباره فردوسی و شاهنامه خوشنویسی: امیرخانی</p>
                         </div>
 
                         <div className="flex items-end justify-between mt-1.5 px-1 pb-2 ">

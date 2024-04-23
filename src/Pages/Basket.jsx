@@ -7,10 +7,7 @@ import { CacheProvider } from '@emotion/react';
 import createCache from '@emotion/cache';
 import { prefixer } from 'stylis';
 import rtlPlugin from 'stylis-plugin-rtl';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { EffectCreative, Autoplay } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/effect-creative';
+import SuggestionBox from '../Components/Boxes/SuggestionBox';
 
 function Basket() {
     const [productConf, setProductConf] = useState(true)
@@ -51,7 +48,6 @@ function Basket() {
 
         }
     }
-
     // font family for mui elements
     const theme = createTheme({
         typography: {
@@ -65,7 +61,7 @@ function Basket() {
     });
 
     return (
-        <>
+        <div className='mt-32'>
             <BoxHeader
                 title={'سبد خرید شما'}
                 color={"gr1"}
@@ -74,29 +70,29 @@ function Basket() {
                 count={[3, 6, 9]}
             />
 
-            <div className="lg:w-[85vw] md:w-[90vw] w-[83vw] mx-auto relative mt-16">
+            <div className="lg:w-[85vw] md:w-[90vw] w-[98vw] mx-auto relative mt-16">
 
                 {/* starts of header button of basket boxes */}
                 <div className="flex gap-4 sm:justify-start justify-between">
-                    <button onClick={() => productConfirmation()} className={`outline-sky-100 outline-[6px] outline border-x-2 border-t-2 border-solid border-white dark:border-slate-800 px-4 py-2.5 bg-sky-100 rounded-t-xl text-zinc-800 transition-all ${productConf ? " opacity-100 translate-y-0" : "opacity-60 translate-y-1.5 mb-6 rounded-b-xl border-none"}`}>تایید محصولات</button>
-                    <button onClick={() => infoConfirmation()} className={`outline-sky-100 outline-[6px] outline border-x-2 border-t-2 border-solid border-white dark:border-slate-800 px-4 py-2.5 bg-sky-100 rounded-t-xl text-zinc-800 transition-all  ${infoConf ? " opacity-100 translate-y-0" : "opacity-60 translate-y-1.5 mb-6 rounded-b-xl border-none"}`}>اطلاعات تکمیلی</button>
-                    <button onClick={() => paymentHandler()} className={`outline-sky-200 outline-[6px] outline border-x-2 border-t-2 border-solid border-white dark:border-slate-800 px-4 py-2.5 bg-sky-200 rounded-t-xl text-zinc-800 transition-all ${payment ? " opacity-100 translate-y-0 z-10" : "opacity-60 translate-y-1.5 mb-6 rounded-b-xl border-none"}`}>تکمیل خرید</button>
+                    <button onClick={() => productConfirmation()} className={`outline-sky-100 dark:bg-slate-600 dark:outline-slate-600 dark:text-white outline-[6px] outline border-x-2 border-t-2 border-solid border-white dark:border-slate-800 px-4 py-2.5 bg-sky-100 rounded-t-xl text-zinc-800 transition-all ${productConf ? " opacity-100 translate-y-0" : "opacity-60 translate-y-1.5 mb-6 rounded-b-xl border-none"}`}>تایید محصولات</button>
+                    <button onClick={() => infoConfirmation()} className={`outline-sky-100 dark:bg-slate-600 dark:outline-slate-600 dark:text-white outline-[6px] outline border-x-2 border-t-2 border-solid border-white dark:border-slate-800 px-4 py-2.5 bg-sky-100 rounded-t-xl text-zinc-800 transition-all  ${infoConf ? " opacity-100 translate-y-0" : "opacity-60 translate-y-1.5 mb-6 rounded-b-xl border-none"}`}>اطلاعات تکمیلی</button>
+                    <button onClick={() => paymentHandler()} className={`outline-sky-200 dark:bg-slate-600 dark:outline-slate-600 dark:text-white outline-[6px] outline border-x-2 border-t-2 border-solid border-white dark:border-slate-800 px-4 py-2.5 bg-sky-200 rounded-t-xl text-zinc-800 transition-all ${payment ? " opacity-100 translate-y-0 z-10" : "opacity-60 translate-y-1.5 mb-6 rounded-b-xl border-none"}`}>تکمیل خرید</button>
                 </div>
                 {/* ends of header button of basket boxes */}
 
                 {/* starts of data box */}
-                <div className={`bg-sky-100 ${infoConf ? "w-full opacity-100 outline-sky-100 outline-[6px] outline border-x-2 border-y-2 border-solid border-white dark:border-slate-800" : "h-0 opacity-60 w-0 overflow-hidden z-0"} transition-opacity rounded-xl`}>
+                <div className={`bg-sky-100 dark:bg-slate-600 dark:outline-slate-600 transition-all ${infoConf ? "w-full opacity-100 outline-sky-100 outline-[6px] outline border-x-2 border-y-2 border-solid border-white dark:border-slate-800" : "h-0 opacity-60 w-0 overflow-hidden z-0"} transition-opacity rounded-xl`}>
                     <div className={`w-[90%] md:pb-16 pt-16 pb-10 mx-auto transition-all duration-700 ${infoConf ? "opacity-100 translate-x-0" : "opacity-0 translate-x-4"}`}>
 
                         <form action="#" className="flex md:flex-row flex-col-reverse gap-16 justify-between" onSubmit={e => e.preventDefault()}>
                             <div className="flex-1">
-                                <h2 className="text-slate-700 text-lg">
+                                <h2 className="text-slate-700 dark:text-white text-lg">
                                     اطلاعات گیرنده:
                                 </h2>
 
                                 <div className="flex flex-col h-full justify-between">
-                                    <div className="flex flex-col gap-4 mt-4 w-full">
-                                        <ThemeProvider theme={theme}>
+                                    <div className="flex flex-col gap-4 mt-4 w-full transition-all dark:bg-slate-300 rounded-xl  pt-6 dark:px-6 pb-6 h-full">
+                                        <ThemeProvider theme={theme} >
                                             <CacheProvider value={cacheRtl}>
                                                 <TextField label="نام" variant="standard" />
                                                 <TextField label="نام‌خانوادگی" variant="standard" />
@@ -104,17 +100,17 @@ function Basket() {
                                             </CacheProvider>
                                         </ThemeProvider>
                                     </div>
-                                    <button className={`py-2.5 md:mt-6 mt-10 w-full rounded-full bg-sky-400 border-sky-300 hover:bg-sky-500 active:border-sky-100 text-white border-b-4 border-solid active:translate-y-1`}>ثبت اطلاعات</button>
+                                    <button className={`py-2.5 md:mt-6 mt-10 w-full rounded-full bg-sky-400 border-sky-300 hover:bg-sky-500 active:border-sky-100 text-white border-b-4 border-solid active:translate-y-1 transition-all duration-75 dark:active:border-slate-600 dark:bg-slate-800 dark:border-slate-700 dark:hover:bg-slate-900`}>ثبت اطلاعات</button>
                                 </div>
 
                             </div>
                             <div className="flex-1">
-                                <h2 className="text-slate-700 text-lg">
+                                <h2 className="text-slate-700 dark:text-white text-lg">
                                     آدرس گیرنده:
                                 </h2>
 
                                 <div className="flex flex-col h-full justify-between">
-                                    <div className="flex flex-col gap-4 mt-4 w-full">
+                                    <div className="flex flex-col gap-4 mt-4 w-full transition-all dark:bg-slate-300 rounded-xl  pt-6 dark:px-6 pb-6 h-full">
                                         <ThemeProvider theme={theme}>
                                             <CacheProvider value={cacheRtl}>
                                                 <TextField label="استان" variant="standard" />
@@ -125,7 +121,7 @@ function Basket() {
                                         </ThemeProvider>
                                     </div>
 
-                                    <button className={`py-2.5 md:mt-6 mt-10 w-full rounded-full bg-sky-400 border-sky-300 hover:bg-sky-500 active:border-sky-100 text-white border-b-4 border-solid active:translate-y-1`}
+                                    <button className={`py-2.5 md:mt-6 mt-10 w-full rounded-full bg-sky-400 border-sky-300 hover:bg-sky-500 active:border-sky-100 text-white border-b-4 border-solid active:translate-y-1 transition-all duration-75 dark:active:border-slate-600 dark:bg-slate-800 dark:border-slate-700 dark:hover:bg-slate-900`}
                                         onClick={() => setModal(true)}
                                     >آدرس‌های من</button>
                                 </div>
@@ -138,17 +134,17 @@ function Basket() {
                 {/* ends of data box */}
 
                 {/* starts of shipping boxes */}
-                <div className={`bg-sky-200 ${payment ? "w-full opacity-100 outline-sky-200 outline-[6px] outline border-x-2 border-y-2 border-solid border-white dark:border-slate-800" : "h-0 opacity-60 w-0 overflow-hidden z-0"} transition-opacity sm:rounded-xl rounded-b-xl rounded-r-xl relative`}>
+                <div className={`bg-sky-200 dark:bg-slate-600 dark:outline-slate-600 transition-all ${payment ? "w-full opacity-100 outline-sky-200 outline-[6px] outline border-x-2 border-y-2 border-solid border-white dark:border-slate-800" : "h-0 opacity-60 w-0 overflow-hidden z-0"} transition-opacity sm:rounded-xl rounded-b-xl rounded-r-xl relative`}>
 
-                    <div className={`w-[90%] md:pb-16 pt-16 pb-10 mx-auto transition-all duration-700 ${payment ? "opacity-100 translate-x-0" : "opacity-0 translate-x-4"}`}>
-
-                        <h2 className="text-slate-700 text-xl font-bold py-2 pl-4 pr-6 rounded-l-lg -right-16 top-6 dark:bg-slate-800 dark:text-white bg-white absolute transition-all">
+                        <h2 className="text-xl font-bold py-2 pl-4 pr-6 rounded-l-lg -right-2 top-6 dark:bg-slate-800 text-slate-700  dark:text-white bg-white absolute transition-all">
                             روش ارسال
                         </h2>
 
+                    <div className={`w-[90%] md:pb-16 pt-16 pb-10 mx-auto text-slate-700 transition-all duration-700 ${payment ? "opacity-100 translate-x-0" : "opacity-0 translate-x-4"}`}>
+
                         <div className="grid w-full lg:gap-16 md:gap-8 gap-16 mt-10">
 
-                            <div className={`cursor-pointer col-start-1 md:col-end-3 row-start-1 p-4 lg:p-8 shadow-cs hover:shadow-css hover:-translate-y-1 outline-[4px] outline border-2 border-solid border-sky-200 flex sm:flex-row flex-col justify-center lg:gap-8 gap-4 items-center  h-56 transition-all duration-500 rounded-xl sm:w-[75%] md:w-fit w-full mx-auto ${postPish ? 'bg-lime-100 outline-lime-100' : 'outline-sky-50 bg-sky-50 '}`}
+                            <div className={`cursor-pointer col-start-1 md:col-end-3 row-start-1 p-4 lg:p-8 shadow-cs hover:shadow-css hover:-translate-y-1 outline-[4px] outline border-2 border-solid border-sky-200 dark:border-slate-600 flex sm:flex-row flex-col justify-center lg:gap-8 gap-4 items-center  h-56 transition-all duration-500 rounded-xl sm:w-[75%] md:w-fit w-full mx-auto ${postPish ? 'bg-lime-100 outline-lime-100' : 'outline-sky-50 bg-sky-50 dark:bg-slate-300 dark:outline-slate-300'}`}
                                 onClick={() => { setPostPish(true); setBike(false); setPostFast(false) }}
                             >
                                 <div className="lg:w-52 w-40">
@@ -216,13 +212,13 @@ function Basket() {
                                         </g>
                                     </svg>
                                 </div>
-                                <div className="flex flex-col gap-4 sm:text-start text-center">
-                                    <h2 className="text-slate-700 text-lg">پست پیشتاز</h2>
-                                    <p className="text-slate-700 text-sm">تحویل 2 الی 3 روزه</p>
+                                <div className="flex flex-col gap-4 sm:text-start text-center ">
+                                    <h2 className="text-lg">پست پیشتاز</h2>
+                                    <p className="text-sm">تحویل 2 الی 3 روزه</p>
                                 </div>
                             </div>
 
-                            <div className={`cursor-pointer md:col-start-3 md:col-end-6 col-start-1 md:row-start-1 row-start-2 p-4 lg:p-8 shadow-cs hover:shadow-css hover:-translate-y-1 outline-[4px] outline border-2 border-solid border-sky-200 flex justify-center sm:flex-row flex-col lg:gap-8 gap-4 items-center  h-56 transition-all duration-500 rounded-xl sm:w-[75%] md:w-fit w-full mx-auto ${postFast ? 'bg-lime-100 outline-lime-100' : 'outline-sky-50 bg-sky-50 '}`}
+                            <div className={`cursor-pointer md:col-start-3 md:col-end-6 col-start-1 md:row-start-1 row-start-2 p-4 lg:p-8 shadow-cs hover:shadow-css hover:-translate-y-1 outline-[4px] outline border-2 border-solid border-sky-200 dark:border-slate-600 flex justify-center sm:flex-row flex-col lg:gap-8 gap-4 items-center  h-56 transition-all duration-500 rounded-xl sm:w-[75%] md:w-fit w-full mx-auto ${postFast ? 'bg-lime-100 outline-lime-100' : 'outline-sky-50 bg-sky-50 dark:bg-slate-300 dark:outline-slate-300'}`}
                                 onClick={() => { setPostPish(false); setBike(false); setPostFast(true) }}
                             >
                                 <div className="lg:w-52 w-40">
@@ -283,12 +279,12 @@ function Basket() {
                                     </svg>
                                 </div>
                                 <div className="flex flex-col gap-4 sm:text-start text-center">
-                                    <h2 className="text-slate-700 text-lg">پست سفارشی</h2>
-                                    <p className="text-slate-700 text-sm">تحویل 1 الی 2 روزه</p>
+                                    <h2 className="text-lg">پست سفارشی</h2>
+                                    <p className="text-sm">تحویل 1 الی 2 روزه</p>
                                 </div>
                             </div>
 
-                            <div className={`cursor-pointer md:col-start-2 md:col-end-4 col-start-1 md:row-start-2 row-start-3 p-4 lg:p-8 shadow-cs hover:shadow-css hover:-translate-y-1 outline-[4px] outline border-2 border-solid border-sky-200 flex justify-center sm:flex-row flex-col lg:gap-8 gap-4 items-center h-56 transition-all duration-500 rounded-xl sm:w-[75%] md:w-fit w-full mx-auto ${bike ? 'bg-lime-100 outline-lime-100' : 'outline-sky-50 bg-sky-50'}`}
+                            <div className={`cursor-pointer md:col-start-2 md:col-end-4 col-start-1 md:row-start-2 row-start-3 p-4 lg:p-8 shadow-cs hover:shadow-css hover:-translate-y-1 outline-[4px] outline border-2 border-solid border-sky-200 dark:border-slate-600 flex justify-center sm:flex-row flex-col lg:gap-8 gap-4 items-center h-56 transition-all duration-500 rounded-xl sm:w-[75%] md:w-fit w-full mx-auto ${bike ? 'bg-lime-100 outline-lime-100' : 'outline-sky-50 bg-sky-50 dark:bg-slate-300 dark:outline-slate-300'}`}
                                 onClick={() => { setBike(true); setPostPish(false); setPostFast(false) }}
                             >
                                 <div className="lg:w-52 w-40">
@@ -334,8 +330,8 @@ function Basket() {
                                     </svg>
                                 </div>
                                 <div className="flex flex-col gap-4 sm:text-start text-center">
-                                    <h2 className="text-slate-700 text-lg">پیک موتوری</h2>
-                                    <p className="text-slate-700 text-sm">فقط برای آدرس‌های تهران</p>
+                                    <h2 className="text-lg">پیک موتوری</h2>
+                                    <p className="text-sm">فقط برای آدرس‌های تهران</p>
                                 </div>
                             </div>
 
@@ -349,7 +345,7 @@ function Basket() {
                 <div className="grid gap-12 justify-center">
 
                     {/* starts of products box */}
-                    <div className={`bg-sky-100 col-start-1 lg:col-end-3 md:col-end-5 ${productConf ? "w-full opacity-100 outline-sky-100 outline-[6px] outline border-x-2 border-y-2 border-solid border-white dark:border-slate-800" : "h-0 opacity-60 w-0 overflow-hidden z-0"} flex flex-col justify-between transition-opacity rounded-l-xl rounded-b-xl`}>
+                    <div className={`bg-sky-100 col-start-1 lg:col-end-3 md:col-end-5 dark:bg-slate-600 dark:outline-slate-600 transition-all ${productConf ? "w-full opacity-100 outline-sky-100 outline-[6px] outline border-x-2 border-y-2 border-solid border-white dark:border-slate-800" : "h-0 opacity-60 w-0 overflow-hidden z-0"} flex flex-col justify-between transition-opacity rounded-l-xl rounded-b-xl`}>
 
                         <div className={`md:w-[90%] w-[80%] lg:pt-16 pt-10 mx-auto transition-all duration-700 flex flex-col justify-center items-center gap-8 ${productConf ? "opacity-100 translate-x-0" : "opacity-0 translate-x-4"}`}>
                             <div className="">
@@ -370,138 +366,32 @@ function Basket() {
                     {/* ends of products box */}
 
                     {/* starts of suggested products */}
-                    <div className={`bg-sky-100 lg:col-start-3 lg:col-end-5 lg:row-start-1 md:col-end-5 col-start-1 md:row-start-3 row-start-4 ${productConf ? "w-full opacity-100 outline-sky-100 outline-[6px] outline border-x-2 border-y-2 border-solid border-white dark:border-slate-800" : "h-0 opacity-60 w-0 overflow-hidden z-0"} transition-opacity rounded-xl relative`}>
-
-                        <h2 className="text-slate-700 text-xl font-bold py-2 pl-4 pr-6 rounded-l-lg -right-2 top-6 dark:bg-slate-800 dark:text-white bg-white absolute transition-all">
-                            محصولات مشابه
-                        </h2>
-                        <div className={`w-[90%] pt-28 pb-10 mx-auto transition-all duration-700 ${productConf ? "opacity-100 translate-x-0" : "opacity-0 translate-x-4"}`}>
-                            <div className="lg:block hidden">
-                                <Swiper
-                                    grabCursor={true}
-                                    effect={'creative'}
-                                    creativeEffect={{
-                                        prev: {
-                                            shadow: false,
-                                            translate: [0, 0, -400],
-                                        },
-                                        next: {
-                                            shadow: false,
-                                            translate: ['100%', 0, 0],
-                                        },
-                                    }}
-                                    autoplay={{
-                                        delay: 2800,
-                                        disableOnInteraction: false,
-                                    }}
-                                    modules={[EffectCreative, Autoplay]}
-                                    className="lg:w-[16vw] rounded-2xl"
-                                >
-                                    <SwiperSlide>
-                                        <div className="">
-                                            <ProductBox suggest={true} box={false} />
-                                        </div>
-                                    </SwiperSlide>
-                                    <SwiperSlide>
-                                        <div className="">
-                                            <ProductBox suggest={true} box={false} />
-                                        </div>
-                                    </SwiperSlide>
-                                    <SwiperSlide>
-                                        <div className="">
-                                            <ProductBox suggest={true} box={false} />
-                                        </div>
-                                    </SwiperSlide>
-                                    <SwiperSlide>
-                                        <div className="">
-                                            <ProductBox suggest={true} box={false} />
-                                        </div>
-                                    </SwiperSlide>
-                                </Swiper>
-                            </div>
-                            <div className="lg:block hidden mt-10">
-                                <Swiper
-                                    grabCursor={true}
-                                    effect={'creative'}
-                                    creativeEffect={{
-                                        prev: {
-                                            shadow: false,
-                                            translate: [0, 0, -400],
-                                        },
-                                        next: {
-                                            shadow: false,
-                                            translate: ['100%', 0, 0],
-                                        },
-                                    }}
-                                    autoplay={{
-                                        delay: 3000,
-                                        disableOnInteraction: false,
-                                    }}
-                                    modules={[EffectCreative, Autoplay]}
-                                    className="lg:w-[16vw] rounded-2xl"
-                                >
-                                    <SwiperSlide>
-                                        <div className="">
-                                            <ProductBox suggest={true} box={false} />
-                                        </div>
-                                    </SwiperSlide>
-                                    <SwiperSlide>
-                                        <div className="">
-                                            <ProductBox suggest={true} box={false} />
-                                        </div>
-                                    </SwiperSlide>
-                                    <SwiperSlide>
-                                        <div className="">
-                                            <ProductBox suggest={true} box={false} />
-                                        </div>
-                                    </SwiperSlide>
-                                    <SwiperSlide>
-                                        <div className="">
-                                            <ProductBox suggest={true} box={false} />
-                                        </div>
-                                    </SwiperSlide>
-                                </Swiper>
-                            </div>
-                            <div className="flex justify-center flex-wrap gap-4 lg:hidden">
-                                <div className="sm:w-40 w-52">
-                                    <ProductBox box={false} />
-                                </div>
-                                <div className="sm:w-40 w-52">
-                                    <ProductBox box={false} />
-                                </div>
-                                <div className="sm:w-40 w-52">
-                                    <ProductBox box={false} />
-                                </div>
-                                <div className="sm:w-40 w-52">
-                                    <ProductBox box={false} />
-                                </div>
-
-                            </div>
-                        </div>
+                    <div className={`bg-sky-100 lg:col-start-3 lg:col-end-5 pt-9 pb-4 px-6 p lg:row-start-1 md:col-end-5 col-start-1 md:row-start-3 row-start-4 dark:bg-slate-600 dark:outline-slate-600 transition-all ${productConf ? "w-full block opacity-100 outline-sky-100 outline-[6px] outline border-x-2 border-y-2 border-solid border-white dark:border-slate-800" : "hidden overflow-hidden z-0"} transition-opacity rounded-xl relative`}>
+                        <SuggestionBox bascket={true} />
                     </div>
                     {/* starts of suggested products */}
 
                     {/* starts of discount box */}
-                    <div className={`md:col-start-1 md:col-end-3 col-start-1 row-start-2 p-4 flex flex-col justify-around outline-[6px] outline border-2 border-solid border-white dark:border-slate-800 w-full rounded-xl ${infoConf && "bg-sky-100 outline-sky-100"} ${productConf && "bg-sky-100 outline-sky-100"} ${payment && "bg-sky-200 outline-sky-200"}`}>
+                    <div className={`md:col-start-1 md:col-end-3 col-start-1 row-start-2 p-4 flex flex-col justify-around outline-[6px] outline border-2 border-solid transition-all border-white dark:border-slate-800 w-full rounded-xl dark:bg-slate-600 dark:outline-slate-600 ${infoConf && "bg-sky-100 outline-sky-100"} ${productConf && "bg-sky-100 outline-sky-100"} ${payment && "bg-sky-200 outline-sky-200"}`}>
 
                         <div className="flex md:items-center md:gap-8 gap-4 md:flex-row flex-col my-6 md:my-0">
 
-                            <input type="text" className={`py-2 pl-4 pr-6 rounded-full bg-sky-100 border-2 focus:shadow-cs border-solid outline-none ${infoConf && "border-sky-400 bg-sky-50 placeholder:text-sky-500"} ${productConf && "border-sky-400 bg-sky-50 placeholder:text-sky-500"} ${payment && "border-sky-500 bg-sky-100 placeholder:text-sky-600"}`} placeholder='کد تخفیف' />
+                            <input type="text" className={`py-2 pl-4 pr-6 rounded-full bg-sky-100 border-2 focus:shadow-cs border-solid outline-none transition-all dark:bg-slate-400 dark:text-white dark:placeholder:text-slate-200 dark:border-slate-300 ${infoConf && "border-sky-400 bg-sky-50 placeholder:text-sky-500"} ${productConf && "border-sky-400 bg-sky-50 placeholder:text-sky-500"} ${payment && "border-sky-500 bg-sky-100 placeholder:text-sky-600"}`} placeholder='کد تخفیف' />
 
-                            <button className={`py-2 px-6 rounded-full text-white border-b-4 border-solid active:translate-y-1 ${infoConf && "bg-sky-400 border-sky-300 hover:bg-sky-500 active:border-sky-100 "} ${productConf && "hover:bg-sky-500 bg-sky-400 active:border-sky-100 border-sky-300"} ${payment && "bg-sky-500 active:border-sky-200 border-sky-400 hover:bg-sky-600"}`}>اعمال</button>
+                            <button className={`py-2 px-6 rounded-full text-white border-b-4 border-solid active:translate-y-1 transition-all duration-75 dark:active:border-slate-600 dark:bg-slate-800 dark:border-slate-700 dark:hover:bg-slate-900 ${infoConf && "bg-sky-400 border-sky-300 hover:bg-sky-500 active:border-sky-100"} ${productConf && "hover:bg-sky-500 bg-sky-400 active:border-sky-100 border-sky-300"} ${payment && "bg-sky-500 active:border-sky-200 border-sky-400 hover:bg-sky-600"}`}>اعمال</button>
 
                         </div>
-                        <h3 className={`font-bold text-sky-800`}>
+                        <h3 className={`font-bold text-sky-800 dark:text-sky-200`}>
                             امکان ارسال با پیک موتوری برای ساکنین تهران
                         </h3>
-                        <p className="text-slate-700">
+                        <p className="text-slate-700 dark:text-white">
                             افزودن کالا به سبد خرید به معنی رزرو آن نیست با توجه به محدودیت موجودی سبد خود را ثبت و خرید را تکمیل کنید.
                         </p>
                     </div>
                     {/* ends of discount box */}
 
                     {/* starts of cost box */}
-                    <div className={`md:col-start-3 col-start-1 text-slate-700 md:col-end-5 flex flex-col items-center gap-6 p-4 md:row-start-2 row-start-3 outline-[6px] outline border-2 border-solid border-white dark:border-slate-800 w-full rounded-xl ${infoConf && "bg-sky-100 outline-sky-100"} ${productConf && "bg-sky-100 outline-sky-100"} ${payment && "bg-sky-200 outline-sky-200"}`}>
+                    <div className={`md:col-start-3 col-start-1 text-slate-700 md:col-end-5 flex flex-col items-center gap-6 p-4 md:row-start-2 row-start-3 outline-[6px] outline border-2 border-solid border-white dark:border-slate-800 w-full rounded-xl dark:bg-slate-600 dark:outline-slate-600 transition-all dark:text-white ${infoConf && "bg-sky-100 outline-sky-100"} ${productConf && "bg-sky-100 outline-sky-100"} ${payment && "bg-sky-200 outline-sky-200"}`}>
 
                         <div className="flex justify-around w-full items-center gap-6 md:mt-0 mt-2">
                             <h3 className="">قیمت کل سفارش:</h3>
@@ -519,14 +409,14 @@ function Basket() {
                                 <strong>0 </strong><span className='text-sm'>تومان</span>
                             </h2>
                         </div>
-                        <div className="flex justify-around w-full items-center gap-6 font-bold text-sky-800">
+                        <div className="flex justify-around w-full items-center gap-6 font-bold text-sky-800 dark:text-sky-200">
                             <h3 className="">قیمت قابل پرداخت:</h3>
                             <h2>
                                 <strong>5,398,000 </strong><span className='text-sm'>تومان</span>
                             </h2>
                         </div>
 
-                        <button className={`py-2.5 w-full rounded-full text-white border-b-4 border-solid active:translate-y-1 ${infoConf && "bg-sky-400 border-sky-300 hover:bg-sky-500 active:border-sky-100"} ${productConf && "hover:bg-sky-500 bg-sky-400 border-sky-300 active:border-sky-100"} ${payment && "bg-sky-500 border-sky-400 hover:bg-sky-600 active:border-sky-200"}`}
+                        <button className={`py-2.5 w-full rounded-full text-white border-b-4 border-solid active:translate-y-1 transition-all duration-75 dark:active:border-slate-600 dark:bg-slate-800 dark:border-slate-700 dark:hover:bg-slate-900 ${infoConf && "bg-sky-400 border-sky-300 hover:bg-sky-500 active:border-sky-100"} ${productConf && "hover:bg-sky-500 bg-sky-400 border-sky-300 active:border-sky-100"} ${payment && "bg-sky-500 border-sky-400 hover:bg-sky-600 active:border-sky-200"}`}
                             onClick={() => submitHandler()}
                         >
                             {payment ? "پرداخت" : "گام بعدی"}
@@ -551,7 +441,7 @@ function Basket() {
             </Modal>
             {/* ends of addresses modal */}
 
-        </>
+        </div>
     );
 }
 

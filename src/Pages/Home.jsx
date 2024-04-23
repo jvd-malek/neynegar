@@ -6,7 +6,7 @@ import ArticleBox from '../Components/Boxes/ArticleBox';
 
 function Home() {
     return (
-        <>
+        <div className='mt-32'>
             <div className="lg:hidden ">
                 <BoxHeader
                     title={'محصولات شگفت‌انگیز'}
@@ -70,7 +70,7 @@ function Home() {
                 <ArticleBox/>
             </div>
 
-        </>
+        </div>
     );
 }
 

@@ -61,7 +61,7 @@ function Login({isLogin}) {
                                 <CacheProvider value={cacheRtl}>
                                     <TextField label="شماره تلفن" required variant="standard" />
                                     <TextField label="رمز عبور" required variant="standard" />
-                                    <button className={`py-2.5 mt-6 w-full rounded-full bg-sky-400 border-sky-300 hover:bg-sky-500 active:border-white text-white border-b-4 border-solid active:translate-y-1`}>دریافت رمز عبور</button>
+                                    <button className={`py-2.5 mt-6 w-full rounded-full bg-sky-400 border-sky-300 hover:bg-sky-500 dark:active:border-slate-200 active:border-white text-white border-b-4 border-solid active:translate-y-1`}>دریافت رمز عبور</button>
                                     </CacheProvider>
                             </ThemeProvider>
                             <h3 className="text-base mb-4">کاربر جدید هستید؟
@@ -80,7 +80,7 @@ function Login({isLogin}) {
                                     <TextField label="نام و نام‌خانوادگی" required variant="standard" />
                                     <TextField label="شماره تلفن" required variant="standard" />
                                     <TextField label="رمز عبور" required variant="standard" />
-                                    <button className={`py-2.5 mt-6 w-full rounded-full bg-sky-400 border-sky-300 hover:bg-sky-500 active:border-white text-white border-b-4 border-solid active:translate-y-1`}>دریافت رمز عبور</button>
+                                    <button className={`py-2.5 mt-6 w-full rounded-full bg-sky-400 border-sky-300 hover:bg-sky-500 dark:active:border-slate-200 active:border-white  text-white border-b-4 border-solid active:translate-y-1`}>دریافت رمز عبور</button>
                                 </CacheProvider>
                             </ThemeProvider>
                             <h3 className="text-base mb-4">قبلا ثبت‌نام کرده‌اید؟

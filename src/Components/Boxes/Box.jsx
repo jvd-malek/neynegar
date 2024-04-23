@@ -2,7 +2,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/autoplay';
-import { Autoplay, Navigation, Pagination } from 'swiper/modules';
+import { Autoplay, Pagination } from 'swiper/modules';
 import ProductBox from './ProductBox';
 
 
@@ -11,7 +11,7 @@ function Box({color}) {
 
     return (
         <>
-            <div className={`${color} mt-6 rounded-2xl mx-auto w-[82vw] dark:bg-slate-600 transition-all`}>
+            <div className={`mt-6 rounded-2xl mx-auto w-[82vw] dark:bg-slate-500 ${color} dark:gr2dark transition-all`}>
                 <div className="rounded-3xl">
                     <Swiper
                         slidesPerView={1}
